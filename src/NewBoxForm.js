@@ -3,28 +3,28 @@ import { useState } from "react";
 /**
  * NewBoxForm: renders a form to enter width, height, and color values for
  * a new box
- * 
+ *
  * Props:
  * - addNewBox: function to add new box to BoxList
- * 
+ *
  * State:
  * - boxFormData: one source of truth for current form data
- * 
+ *
  * BoxList -> NewBoxForm
- * @param {object} param0 - addNewBox function 
+ * @param {object} param0 - addNewBox function
  * @returns new box form
  */
-function NewBoxForm({addNewBox}) {
+function NewBoxForm({ addNewBox }) {
   const initialState = {
     width: "",
     height: "",
     color: ""
-  }
+  };
   const [boxFormData, setBoxFormData] = useState(initialState);
 
   /**
    * handleChange: event handler for when an input changes
-   * @param {event} evt - change event 
+   * @param {event} evt - change event
    */
   function handleChange(evt) {
     const { name, value } = evt.target;
@@ -47,13 +47,13 @@ function NewBoxForm({addNewBox}) {
 
   return (
     <form>
-      <label htmlFor="width"></label>Width: 
+      <label htmlFor="width"></label>Width:
       <input id="width" name="width" onChange={handleChange}></input>
-      <label htmlFor="height"></label>Height: 
+      <label htmlFor="height"></label>Height:
       <input id="height" name="height" onChange={handleChange}></input>
-      <label htmlFor="color"></label>Color: 
-      <input id="color" name="color"onChange={handleChange}></input>
-      <submit onClick={handleSubmit}>Make Box</submit>
+      <label htmlFor="color"></label>Color:
+      <input id="color" name="color" onChange={handleChange}></input>
+      <button onClick={handleSubmit}>Make Box</button>
     </form>
   );
 }
