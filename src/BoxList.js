@@ -1,7 +1,7 @@
 import Box from "./Box.js";
 import NewBoxForm from "./NewBoxForm.js";
 import { useState } from "react";
-import { uniqueId as _uniqueId } from "lodash/uniqueId";
+import uniqueId from "lodash/uniqueId";
 import { v4 as uuid } from "uuid";
 
 /**
@@ -28,7 +28,7 @@ function BoxList() {
   function addNewBox(boxData) {
     setBoxes(currBoxes => {
       return [...currBoxes,
-      { ...boxData, id: uuid() }
+      { ...boxData, id: uniqueId() }
       ];
     });
   }
